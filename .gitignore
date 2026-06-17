@@ -1,0 +1,25 @@
+node_modules/
+/.next/
+/out/
+/build
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+# SINAPSE framework (não sobe pro repositório público)
+.sinapse-ai/
+.sinapse/
+.claude/
+.antigravity/
+.gemini/
+.kimi/
+agents/
+docs/
+bin/
+squads/
+AGENTS.md

@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-zinc-900 antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  ::selection {
+    @apply bg-violet-100 text-violet-900;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-br from-violet-600 via-violet-700 to-violet-900 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-zinc-200/60;
+  }
+
+  .section-padding {
+    @apply py-24 px-6;
+  }
+
+  .container-width {
+    @apply max-w-6xl mx-auto w-full;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-violet-500/10 hover:-translate-y-1;
+  }
+}

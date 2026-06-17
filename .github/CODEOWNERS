@@ -1,0 +1,12 @@
+# Code Owners — Portifólio - Júlia
+# All PRs require approval from an owner before merge.
+
+# Default: all files require maintainer review
+* @vitordalbuquerque
+
+# Framework and agent configuration
+.sinapse-ai/ @vitordalbuquerque
+.claude/      @vitordalbuquerque
+
+# CI/CD and GitHub config
+.github/      @vitordalbuquerque
