@@ -111,7 +111,7 @@ export default function About() {
             {/* Career timeline */}
             <div className="relative pt-2 space-y-0">
               <div className="absolute left-[19px] top-3 bottom-3 w-px bg-gradient-to-b from-zinc-200 via-violet-300 to-violet-600" />
-              {timeline.map(({ icon: Icon, company, period, role, desc, current }, i) => (
+              {timeline.map(({ icon: Icon, company, period, role, desc, current }) => (
                 <div key={company + period} className="relative flex gap-4 pb-5 last:pb-0">
                   <div className={`relative z-10 flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${current ? 'bg-violet-600' : 'bg-white border-2 border-violet-300'}`}>
                     <Icon size={15} className={current ? 'text-white' : 'text-violet-500'} />

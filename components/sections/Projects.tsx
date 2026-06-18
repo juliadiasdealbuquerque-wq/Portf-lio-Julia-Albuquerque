@@ -3,11 +3,11 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import {
-  Bot, AlertTriangle, CheckCircle2, ArrowRight,
+  Bot, AlertTriangle, CheckCircle2,
   Database, TrendingUp, FileBarChart, Lightbulb, Target,
-  MessageSquare, ShieldCheck, BookOpen, Users, Layers,
+  MessageSquare,
 } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import { VolumeChart, SlaChart, SentimentChart } from '@/components/charts/DashboardChart'
 
 function SectionHeader({ tag, title, description }: { tag: string; title: React.ReactNode; description: string }) {
@@ -135,7 +135,7 @@ function AIAgentProject() {
             </div>
           </div>
           <div className="mt-4 p-3 rounded-lg bg-violet-600 text-center">
-            <p className="text-[11px] text-white/90 italic">"Bons agentes não nascem prontos — eles são refinados constantemente."</p>
+            <p className="text-[11px] text-white/90 italic">&ldquo;Bons agentes não nascem prontos — eles são refinados constantemente.&rdquo;</p>
           </div>
         </Card>
       </motion.div>
