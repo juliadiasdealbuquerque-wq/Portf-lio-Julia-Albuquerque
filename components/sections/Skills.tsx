@@ -21,7 +21,7 @@ const skillCategories = [
     color: 'text-indigo-600',
     bg: 'bg-indigo-50',
     border: 'border-indigo-100',
-    skills: ['Excel', 'Power BI', 'KPIs', 'Dashboards'],
+    skills: ['Excel', 'Análise de Dados', 'KPIs', 'Dashboards'],
     accent: 'bg-indigo-600',
   },
   {
@@ -39,7 +39,7 @@ const skillCategories = [
     color: 'text-violet-600',
     bg: 'bg-violet-50',
     border: 'border-violet-100',
-    skills: ['Redes sociais', 'Conteúdo', 'Performance', 'Análise de campanhas'],
+    skills: ['Redes sociais', 'SEO', 'Performance', 'Análise de campanhas'],
     accent: 'bg-violet-600',
   },
 ]

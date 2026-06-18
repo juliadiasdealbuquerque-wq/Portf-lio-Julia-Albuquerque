@@ -44,13 +44,6 @@ export default function Hero() {
           initial="hidden"
           animate="show"
         >
-          {/* Badge */}
-          <motion.div variants={item} className="flex justify-center mb-8">
-            <span className="inline-flex items-center px-4 py-2 rounded-full bg-violet-50 border border-violet-200/80 text-xs font-semibold text-violet-700">
-              Disponível para oportunidades
-            </span>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             variants={item}
@@ -79,9 +72,9 @@ export default function Hero() {
               </a>
             </Button>
             <Button size="lg" variant="outline" className="w-full sm:w-auto group" asChild>
-              <a href="/curriculo-julia-dias.pdf" download>
+              <a href="/curriculo-julia-dias.html" target="_blank" rel="noopener noreferrer">
                 <Download size={16} className="group-hover:scale-110 transition-transform" />
-                Baixar Currículo
+                Ver Currículo
               </a>
             </Button>
           </motion.div>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo — Júlia Dias de Albuquerque</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      color: #1a1a2e;
+      background: #f5f5f5;
+    }
+
+    /* Editable field notice — hidden on print */
+    .edit-notice {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .page {
+      width: 794px;
+      min-height: 1123px;
+      margin: 0 auto;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      grid-column: 1 / -1;
+      background: #5b21b6;
+      padding: 28px 32px 24px;
+      color: #fff;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .header .subtitle {
+      margin-top: 6px;
+      font-size: 11.5px;
+      font-weight: 400;
+      color: #ddd6fe;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background: #1e1b4b;
+      color: #e0e7ff;
+      padding: 24px 22px;
+    }
+
+    .sidebar section { margin-bottom: 22px; }
+
+    .sidebar h2 {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #312e81;
+    }
+
+    .sidebar p, .sidebar li {
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: #c7d2fe;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      margin-bottom: 7px;
+    }
+
+    .contact-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: #a5b4fc;
+    }
+
+    .contact-item a { color: #c7d2fe; text-decoration: none; }
+    .contact-item a:hover { color: #fff; }
+
+    .skill-tag {
+      display: inline-block;
+      background: #312e81;
+      color: #c7d2fe;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin: 2px 2px 2px 0;
+    }
+
+    .degree-item {
+      margin-bottom: 10px;
+    }
+
+    .degree-item .degree-type {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+    }
+
+    .degree-item .degree-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #e0e7ff;
+      margin-top: 1px;
+      line-height: 1.3;
+    }
+
+    .degree-item .degree-inst {
+      font-size: 10.5px;
+      color: #a5b4fc;
+      margin-top: 1px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main {
+      padding: 24px 28px;
+    }
+
+    .main section {
+      margin-bottom: 20px;
+    }
+
+    .main h2 {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #ede9fe;
+    }
+
+    .profile-text {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #374151;
+    }
+
+    /* Experience */
+    .exp-item { margin-bottom: 16px; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .exp-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.3;
+    }
+
+    .exp-company {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #7c3aed;
+      margin-bottom: 4px;
+    }
+
+    .exp-period {
+      font-size: 10px;
+      font-weight: 600;
+      color: #9ca3af;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 4px;
+    }
+
+    .exp-item li {
+      font-size: 11.5px;
+      color: #4b5563;
+      line-height: 1.55;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+
+    .exp-item li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #a78bfa;
+      font-size: 9px;
+      top: 2px;
+    }
+
+    .project-badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #5b21b6;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 4px;
+    }
+
+    .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .soft-tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid #ddd6fe;
+      color: #5b21b6;
+      background: #faf5ff;
+    }
+
+    /* Editable field */
+    [contenteditable="true"] {
+      background: #fef3c7;
+      border-bottom: 1.5px dashed #f59e0b;
+      border-radius: 2px;
+      padding: 0 2px;
+      cursor: text;
+      outline: none;
+      transition: background 0.15s;
+    }
+
+    [contenteditable="true"]:focus {
+      background: #fde68a;
+      border-bottom-color: #d97706;
+    }
+
+    [contenteditable="true"]:hover {
+      background: #fef08a;
+    }
+
+    /* Print styles */
+    @media print {
+      .edit-notice { display: none; }
+      body { background: #fff; }
+      .page { margin: 0; width: 100%; }
+      [contenteditable="true"] {
+        background: transparent;
+        border-bottom: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="edit-notice">
+    ✏️ Campos em destaque amarelo são editáveis — clique para inserir seus dados. Depois use Ctrl+P → Salvar como PDF.
+  </div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>Júlia Dias de<br>Albuquerque</h1>
+      <p class="subtitle">Customer Analyst Jr · Comunicação &amp; Mídias Sociais · Inteligência Artificial</p>
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <section>
+        <h2>Contato</h2>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span contenteditable="true" spellcheck="false" title="Clique para editar o endereço">[Endereço]</span>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.14 2.18 2 2 0 012.12 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.46-.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          <span contenteditable="true" spellcheck="false" title="Clique para editar o telefone">(11) [TELEFONE]</span>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:juliadiasdealbuquerque@gmail.com">juliadiasdealbuquerque@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://linkedin.com/in/juliadiasdealbuquerque">/in/juliadiasdealbuquerque</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Formação</h2>
+        <div class="degree-item">
+          <div class="degree-type">Pós-Graduação · MBA</div>
+          <div class="degree-title">Marketing e Branding</div>
+          <div class="degree-inst">Descomplica Faculdade Digital · 2025</div>
+        </div>
+        <div class="degree-item">
+          <div class="degree-type">Tecnólogo</div>
+          <div class="degree-title">Marketing</div>
+          <div class="degree-inst">Descomplica Faculdade Digital · 2024</div>
+        </div>
+        <div class="degree-item">
+          <div class="degree-type">Ensino Médio</div>
+          <div class="degree-title">Colégio Costa Aguiar · 2020</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Hard Skills</h2>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Análise de Dados</span>
+        <span class="skill-tag">Dashboards</span>
+        <span class="skill-tag">KPIs / SLA</span>
+        <span class="skill-tag">Engenharia de Prompt</span>
+        <span class="skill-tag">Claude / GPTs</span>
+        <span class="skill-tag">Agentes de IA</span>
+        <span class="skill-tag">Marketing Digital</span>
+        <span class="skill-tag">SEO</span>
+        <span class="skill-tag">Redes Sociais</span>
+        <span class="skill-tag">Inside Sales</span>
+        <span class="skill-tag">Atendimento Omnicanal</span>
+        <span class="skill-tag">Lean Seis Sigma (White Belt)</span>
+      </section>
+
+      <section>
+        <h2>Cursos Complementares</h2>
+        <p style="font-size:11px;line-height:1.8;color:#a5b4fc;">
+          Engenharia de Prompt · 2024<br>
+          IA Aplicada ao Marketing · 2024<br>
+          Lean Seis Sigma — White Belt · 2022<br>
+          SEO Intermediário · 2022<br>
+          Planejamento Harvard · 2022<br>
+          Rapport e Influência · 2022<br>
+          Escrita Assertiva · 2022<br>
+          Argumentação Persuasiva · 2022<br>
+          Customer Experience · 2021<br>
+          Marketing Digital · 2021
+        </p>
+      </section>
+
+      <section>
+        <h2>Idiomas</h2>
+        <p style="font-size:11.5px;color:#c7d2fe;font-weight:600;">Inglês</p>
+        <p style="font-size:10.5px;color:#a5b4fc;margin-top:2px;">Intermediário</p>
+      </section>
+
+      <section>
+        <h2>PCD</h2>
+        <p style="font-size:11px;color:#a5b4fc;">CID G80.1 — Deficiência Física</p>
+      </section>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <section>
+        <h2>Perfil Profissional</h2>
+        <p class="profile-text">
+          Profissional com experiência em <strong>Customer Experience</strong>, Comunicação Digital e Análise de Dados.
+          Atualmente na <strong>Gringo · Corpay</strong>, atuo na gestão de mídias sociais das marcas Gringo e Zapay,
+          análise de indicadores de atendimento, construção de apresentações executivas para liderança e
+          desenvolvimento de projetos de IA aplicados à operação.
+          Combino visão estratégica de CX com capacidade analítica e domínio de ferramentas de inteligência artificial —
+          uma trilha que vai do dado bruto à narrativa de impacto.
+          Pós-graduada (MBA) em Marketing e Branding, com sólida base em marketing digital, SEO e automações com IA.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experiência Profissional</h2>
+
+        <!-- Gringo - Mídias Sociais (atual) -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Customer Analyst Jr — Mídias Sociais</div>
+              <div class="exp-company">Gringo · Corpay</div>
+            </div>
+            <div class="exp-period">Out 2023 – Atualmente</div>
+          </div>
+          <ul>
+            <li>Gestão das interações com clientes nas redes sociais das marcas <strong>Gringo</strong> e <strong>Zapay</strong> (comentários, DMs e canais digitais), garantindo comunicação empática e alinhada ao tom de voz de cada marca</li>
+            <li>Monitoramento da percepção dos usuários, sentimentação e identificação de temas recorrentes</li>
+            <li><span class="project-badge">Projeto</span>Desenvolvimento de <strong>Agente de IA</strong> para geração de sugestões de resposta alinhadas ao tom de voz das marcas Gringo e Zapay, otimizando a rotina operacional e eliminando respostas repetitivas</li>
+            <li><span class="project-badge">Projeto</span>Estruturação de <strong>dashboard de atendimento</strong> com análises quinzenais e mensais de volume de interações, SLA, sentimentação e temas recorrentes</li>
+            <li><span class="project-badge">Projeto</span>Criação de <strong>apresentações executivas</strong> para liderança com insights estratégicos e recomendações acionáveis sobre a jornada do cliente</li>
+            <li>Atuação em parceria com áreas internas para melhoria contínua de processos e resolução de demandas</li>
+          </ul>
+        </div>
+
+        <!-- Gringo - CX -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Customer Analyst Jr — CX & Produto</div>
+              <div class="exp-company">Gringo</div>
+            </div>
+            <div class="exp-period">Mar 2023 – Out 2023</div>
+          </div>
+          <ul>
+            <li>Atendimento aos motoristas parceiros via chat e e-mail (canais omnicanal)</li>
+            <li>Participação ativa em squads multidisciplinares com levantamento de insights para evolução do produto</li>
+            <li>Identificação de oportunidades de melhoria nos processos internos com base na percepção dos usuários</li>
+            <li>Desenvolvimento de projetos supervisionados de melhoria operacional</li>
+            <li>Criação e aplicação de <strong>onboarding e treinamento de atendimento</strong> para demais áreas</li>
+          </ul>
+        </div>
+
+        <!-- Teleperformance -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Expert em Interação</div>
+              <div class="exp-company">Teleperformance</div>
+            </div>
+            <div class="exp-period">Jul 2021 – Mar 2023</div>
+          </div>
+          <ul>
+            <li>Prospecção ativa via ligação e <strong>inside sales</strong>, com foco em conversão e satisfação do cliente</li>
+            <li>Treinamento e integração de novos colaboradores no dia a dia da operação</li>
+            <li>Atendimento humanizado com cumprimento consistente de metas comerciais</li>
+            <li>Auxílio consultivo aos consumidores na escolha de produtos adequados às suas necessidades</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Soft Skills</h2>
+        <div class="soft-skills">
+          <span class="soft-tag">Comunicação clara e empática</span>
+          <span class="soft-tag">Trabalho em equipe</span>
+          <span class="soft-tag">Autonomia e proatividade</span>
+          <span class="soft-tag">Resolução de problemas</span>
+          <span class="soft-tag">Gestão sob pressão</span>
+          <span class="soft-tag">Multitarefa</span>
+          <span class="soft-tag">Entrega com qualidade</span>
+          <span class="soft-tag">Escuta ativa</span>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

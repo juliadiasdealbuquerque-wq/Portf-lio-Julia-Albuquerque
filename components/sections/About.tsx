@@ -4,14 +4,34 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
-import { Building2, TrendingUp, Users, Lightbulb } from 'lucide-react'
+import { Building2, TrendingUp, Users } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 
-const highlights = [
-  { icon: Building2, label: 'Gringo · Corpay', desc: 'Empresa atual' },
-  { icon: Users, label: 'Atendimento ao cliente', desc: 'Análise e indicadores' },
-  { icon: TrendingUp, label: 'Apresentações executivas', desc: 'Para liderança' },
-  { icon: Lightbulb, label: 'Projetos de IA', desc: 'Aplicados à operação' },
+const timeline = [
+  {
+    icon: Users,
+    company: 'Teleperformance',
+    period: '2021 – 2023',
+    role: 'Expert em Interação',
+    desc: 'Inside sales, prospecção ativa, treinamento de novos colaboradores e atendimento humanizado com foco em metas.',
+    current: false,
+  },
+  {
+    icon: Building2,
+    company: 'Gringo',
+    period: '2023',
+    role: 'Customer Analyst Jr — CX & Produto',
+    desc: 'Atendimento omnicanal, participação em squads, levantamento de insights para produto e onboarding de equipes.',
+    current: false,
+  },
+  {
+    icon: TrendingUp,
+    company: 'Gringo · Corpay',
+    period: '2023 – hoje',
+    role: 'Customer Analyst Jr — Mídias Sociais & IA',
+    desc: 'Gestão de Gringo e Zapay, dashboards de atendimento, agente de IA para redes sociais e apresentações executivas.',
+    current: true,
+  },
 ]
 
 const tags = [
@@ -80,33 +100,32 @@ export default function About() {
             </div>
 
             <p className="text-base text-zinc-600 leading-relaxed">
-              Atualmente atuo na <strong className="text-zinc-900">Gringo</strong>, empresa do ecossistema{' '}
-              <strong className="text-zinc-900">Corpay</strong>, sendo responsável por análises de
-              atendimento, acompanhamento de indicadores, construção de apresentações executivas e
-              desenvolvimento de projetos de IA aplicados à operação.
+              Da prospecção humanizada na{' '}
+              <strong className="text-zinc-900">Teleperformance</strong> ao desenvolvimento de{' '}
+              <strong className="text-zinc-900">agentes de IA</strong> na{' '}
+              <strong className="text-zinc-900">Gringo · Corpay</strong> — minha trajetória une
+              comunicação, experiência do cliente e inteligência analítica em uma visão que vai
+              do dado bruto à narrativa estratégica.
             </p>
 
-            <p className="text-base text-zinc-600 leading-relaxed">
-              Minha experiência combina <strong className="text-zinc-900">comunicação</strong>,{' '}
-              <strong className="text-zinc-900">análise de dados</strong>,{' '}
-              <strong className="text-zinc-900">experiência do cliente</strong> e{' '}
-              <strong className="text-zinc-900">melhoria contínua de processos</strong> — uma visão
-              completa que vai do dado bruto à narrativa estratégica.
-            </p>
-
-            {/* Highlights grid */}
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              {highlights.map(({ icon: Icon, label, desc }) => (
-                <div
-                  key={label}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white border border-zinc-200/80 hover:border-violet-200 hover:shadow-sm transition-all duration-200"
-                >
-                  <div className="p-1.5 rounded-lg bg-violet-50 mt-0.5">
-                    <Icon size={14} className="text-violet-600" />
+            {/* Career timeline */}
+            <div className="relative pt-2 space-y-0">
+              <div className="absolute left-[19px] top-3 bottom-3 w-px bg-gradient-to-b from-zinc-200 via-violet-300 to-violet-600" />
+              {timeline.map(({ icon: Icon, company, period, role, desc, current }, i) => (
+                <div key={company + period} className="relative flex gap-4 pb-5 last:pb-0">
+                  <div className={`relative z-10 flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${current ? 'bg-violet-600' : 'bg-white border-2 border-violet-300'}`}>
+                    <Icon size={15} className={current ? 'text-white' : 'text-violet-500'} />
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-zinc-900">{label}</p>
-                    <p className="text-xs text-zinc-500 mt-0.5">{desc}</p>
+                  <div className="flex-1 pt-1.5">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-sm font-bold text-zinc-900">{company}</span>
+                      {current && (
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-violet-100 text-violet-700">atual</span>
+                      )}
+                      <span className="text-xs text-zinc-400 ml-auto">{period}</span>
+                    </div>
+                    <p className="text-xs font-semibold text-violet-600 mt-0.5">{role}</p>
+                    <p className="text-xs text-zinc-500 leading-relaxed mt-1">{desc}</p>
                   </div>
                 </div>
               ))}

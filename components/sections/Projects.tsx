@@ -8,7 +8,6 @@ import {
   MessageSquare, ShieldCheck, BookOpen, Users, Layers,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { VolumeChart, SlaChart, SentimentChart } from '@/components/charts/DashboardChart'
 
 function SectionHeader({ tag, title, description }: { tag: string; title: React.ReactNode; description: string }) {
@@ -23,21 +22,29 @@ function SectionHeader({ tag, title, description }: { tag: string; title: React.
 
 // ─── PROJECT 1: AI AGENT ────────────────────────────────────────────────────
 
-const challenges = ['Falta de consistência', 'Respostas genéricas', 'Escalabilidade limitada']
-const solutions = [
-  { icon: Users, label: 'Construção de persona' },
-  { icon: ShieldCheck, label: 'Regras de negócio' },
-  { icon: BookOpen, label: 'Base de conhecimento' },
-  { icon: MessageSquare, label: 'Biblioteca de exemplos' },
-  { icon: Layers, label: 'Segurança e limites' },
+const challenges = [
+  'Respostas engessadas e repetitivas nos comentários',
+  'Tom de voz inconsistente entre marcas e parceiros',
+  'Rotina operacional sobrecarregada sem escala',
 ]
-const results = ['Mais consistência de tom', 'Respostas contextualizadas', 'Escalabilidade operacional']
 
-const flowNodes = [
-  { label: 'Mensagem recebida', sub: 'Canal social', color: 'bg-zinc-100 border-zinc-200', textColor: 'text-zinc-700' },
-  { label: 'Agente de IA', sub: 'Persona + regras', color: 'bg-violet-600 border-violet-700', textColor: 'text-white' },
-  { label: 'Base de conhecimento', sub: 'Contexto + exemplos', color: 'bg-violet-100 border-violet-200', textColor: 'text-violet-800' },
-  { label: 'Resposta gerada', sub: 'Validada + alinhada', color: 'bg-emerald-50 border-emerald-200', textColor: 'text-emerald-800' },
+const results = [
+  'Mais criatividade nas respostas',
+  'Redução de respostas repetitivas',
+  'Consistência no tom de voz da marca',
+  'Apoio operacional para o time',
+  'Respostas mais rápidas e personalizadas',
+  'Escalabilidade sem perder humanização',
+]
+
+const buildSteps = [
+  { n: '01', label: 'Definição do Objetivo', desc: 'Escopo, papel do agente e o que a IA deve e não deve fazer' },
+  { n: '02', label: 'Definição da Persona', desc: 'Voz em 1ª pessoa, personalidade baseada no Brand Book da marca' },
+  { n: '03', label: 'Criação das Regras', desc: 'Tom, linguagem, emojis obrigatórios e temas sensíveis' },
+  { n: '04', label: 'Construção dos Cenários', desc: 'Anfitrião (Gringo), Convidado (influenciador), Intermediário (parceiro)' },
+  { n: '05', label: 'Uso de Exemplos Reais', desc: 'Referências de tom, tamanho e criatividade como treino comportamental' },
+  { n: '06', label: 'Configuração de Segurança', desc: 'Bloqueio de termos proibidos e proteção de dados internos' },
+  { n: '07', label: 'Testes e Refinos', desc: 'Ajustes contínuos de tom, emoji e naturalidade com casos reais' },
 ]
 
 function AIAgentProject() {
@@ -51,91 +58,84 @@ function AIAgentProject() {
         initial={{ opacity: 0, x: -24 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="space-y-6"
+        className="space-y-5"
       >
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-violet-100">
             <Bot size={22} className="text-violet-600" />
           </div>
           <div>
-            <Badge className="mb-1">Projeto 01</Badge>
-            <h3 className="text-xl font-bold text-zinc-900">Criação de Agente de IA para Redes Sociais</h3>
+            <h3 className="text-xl font-bold text-zinc-900">Agente GPT para Redes Sociais</h3>
           </div>
         </div>
 
-        <p className="text-zinc-600 leading-relaxed">
-          Agente de IA capaz de gerar ideias para respostas diferentes em comentários das redes sociais das marcas (Gringo e Zapay) e influenciadores parceiros alinhadas ao tom de voz de cada empresa, otimizando a rotina operacional e evitando respostas engessadas ou repetitivas.
+        <p className="text-zinc-600 leading-relaxed text-sm">
+          Desenvolvimento de um agente de IA para gerar respostas <strong className="text-zinc-800">criativas, humanizadas e alinhadas ao tom de voz</strong> das marcas Gringo e Zapay — em posts próprios, de influenciadores parceiros e de seguidores. O agente foi arquitetado do zero com metodologia estruturada de 7 etapas.
         </p>
 
-        <div className="grid grid-cols-1 gap-3">
-          {/* Challenges */}
-          <div className="p-4 rounded-xl bg-red-50/60 border border-red-100">
-            <p className="text-xs font-semibold text-red-700 mb-2 flex items-center gap-1.5">
-              <AlertTriangle size={12} /> Desafios
-            </p>
-            <ul className="space-y-1">
-              {challenges.map((c) => (
-                <li key={c} className="text-sm text-red-700/80 flex items-center gap-2">
-                  <span className="w-1 h-1 bg-red-400 rounded-full flex-shrink-0" />
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Results */}
-          <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100">
-            <p className="text-xs font-semibold text-emerald-700 mb-2 flex items-center gap-1.5">
-              <CheckCircle2 size={12} /> Resultados
-            </p>
-            <ul className="space-y-1">
-              {results.map((r) => (
-                <li key={r} className="text-sm text-emerald-700/80 flex items-center gap-2">
-                  <span className="w-1 h-1 bg-emerald-400 rounded-full flex-shrink-0" />
-                  {r}
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Challenges */}
+        <div className="p-4 rounded-xl bg-red-50/60 border border-red-100">
+          <p className="text-xs font-semibold text-red-700 mb-2 flex items-center gap-1.5">
+            <AlertTriangle size={12} /> Problema
+          </p>
+          <ul className="space-y-1.5">
+            {challenges.map((c) => (
+              <li key={c} className="text-sm text-red-700/80 flex items-start gap-2">
+                <span className="w-1 h-1 bg-red-400 rounded-full flex-shrink-0 mt-1.5" />
+                {c}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Solutions */}
-        <div>
-          <p className="text-xs font-semibold text-zinc-500 mb-3 uppercase tracking-wide">Componentes da solução</p>
-          <div className="flex flex-wrap gap-2">
-            {solutions.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-50 border border-zinc-200 text-xs font-medium text-zinc-700">
-                <Icon size={12} className="text-violet-600" />
-                {label}
+        {/* Results — 2 colunas */}
+        <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100">
+          <p className="text-xs font-semibold text-emerald-700 mb-3 flex items-center gap-1.5">
+            <CheckCircle2 size={12} /> Impactos e ganhos
+          </p>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+            {results.map((r) => (
+              <div key={r} className="text-xs text-emerald-700/80 flex items-start gap-1.5">
+                <span className="w-1 h-1 bg-emerald-400 rounded-full flex-shrink-0 mt-1" />
+                {r}
               </div>
             ))}
           </div>
         </div>
       </motion.div>
 
-      {/* Right — Flow Diagram */}
+      {/* Right — 7-step methodology */}
       <motion.div
         initial={{ opacity: 0, x: 24 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Card className="p-6 bg-gradient-to-br from-zinc-50 to-white">
-          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide mb-6 text-center">Fluxo do agente</p>
-          <div className="flex flex-col items-center gap-0">
-            {flowNodes.map((node, i) => (
-              <div key={node.label} className="flex flex-col items-center w-full">
-                <div className={`w-full max-w-xs px-5 py-3.5 rounded-xl border ${node.color} text-center`}>
-                  <p className={`text-sm font-semibold ${node.textColor}`}>{node.label}</p>
-                  <p className={`text-xs mt-0.5 opacity-70 ${node.textColor}`}>{node.sub}</p>
-                </div>
-                {i < flowNodes.length - 1 && (
-                  <div className="flex flex-col items-center my-1.5">
-                    <div className="w-px h-5 bg-zinc-300" />
-                    <ArrowRight size={12} className="text-zinc-400 rotate-90" />
+        <Card className="p-5 bg-gradient-to-br from-zinc-50 to-white">
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide mb-4 text-center">Como o agente foi construído</p>
+          <div className="relative">
+            <div className="absolute left-[18px] top-0 bottom-0 w-px bg-gradient-to-b from-violet-200 via-violet-400 to-violet-600" />
+            <div className="space-y-2">
+              {buildSteps.map(({ n, label, desc }, i) => (
+                <motion.div
+                  key={n}
+                  initial={{ opacity: 0, x: 12 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.35, delay: 0.2 + i * 0.07 }}
+                  className="relative flex items-start gap-3 pl-10"
+                >
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-violet-600 flex items-center justify-center flex-shrink-0 shadow-sm shadow-violet-300">
+                    <span className="text-[10px] font-bold text-white leading-none">{n}</span>
                   </div>
-                )}
-              </div>
-            ))}
+                  <div className={`flex-1 p-2.5 rounded-lg border ${i === buildSteps.length - 1 ? 'bg-violet-50 border-violet-200' : 'bg-white border-zinc-200'}`}>
+                    <p className="text-xs font-bold text-zinc-900">{label}</p>
+                    <p className="text-xs text-zinc-500 mt-0.5 leading-relaxed">{desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 p-3 rounded-lg bg-violet-600 text-center">
+            <p className="text-[11px] text-white/90 italic">"Bons agentes não nascem prontos — eles são refinados constantemente."</p>
           </div>
         </Card>
       </motion.div>
@@ -170,7 +170,6 @@ function DashboardProject() {
               <FileBarChart size={22} className="text-indigo-600" />
             </div>
             <div>
-              <Badge variant="secondary" className="mb-1">Projeto 02</Badge>
               <h3 className="text-xl font-bold text-zinc-900">Dashboard de Atendimento e Mídias</h3>
             </div>
           </div>
@@ -252,7 +251,6 @@ function InsightsProject() {
               <Lightbulb size={22} className="text-purple-600" />
             </div>
             <div>
-              <Badge variant="secondary" className="mb-1">Projeto 03</Badge>
               <h3 className="text-xl font-bold text-zinc-900">Transformação de Dados em Insights</h3>
             </div>
           </div>
