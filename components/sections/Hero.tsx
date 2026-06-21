@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const stats = [
-  '+4 anos de experiência',
+  '+5 anos de experiência',
   'Projetos com IA',
   'Análises estratégicas',
   'Comunicação de marca',
@@ -69,12 +69,6 @@ export default function Hero() {
               <a href="#projetos">
                 Ver Projetos
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto group" asChild>
-              <a href="/curriculo-julia-dias.html" target="_blank" rel="noopener noreferrer">
-                <Download size={16} className="group-hover:scale-110 transition-transform" />
-                Ver Currículo
               </a>
             </Button>
           </motion.div>

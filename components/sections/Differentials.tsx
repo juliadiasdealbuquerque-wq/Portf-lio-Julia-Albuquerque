@@ -9,38 +9,38 @@ const pillars = [
   {
     icon: MessageSquare,
     title: 'Comunicação',
-    subtitle: 'Cria conteúdo que conecta',
+    subtitle: 'Gerencia comunidades com propósito',
     description:
-      'Não só produz conteúdo — desenvolve narrativas com propósito. Redação clara, tom de voz consistente e mensagens que ressoam com o público certo.',
+      'Garante que cada interação reflita a identidade da marca. Tom de voz consistente, respostas estratégicas e gestão de comunidade para múltiplas marcas simultaneamente.',
     color: 'text-violet-600',
     bg: 'bg-violet-50',
     border: 'hover:border-violet-300',
     gradient: 'from-violet-50 to-white',
-    tags: ['Redação', 'Storytelling', 'Tom de voz'],
+    tags: ['Tom de voz', 'Gestão de Comunidade', 'Social Listening'],
   },
   {
     icon: BarChart2,
     title: 'Dados',
-    subtitle: 'Mede impacto e interpreta resultados',
+    subtitle: 'Transforma dados em narrativas estratégicas',
     description:
-      'Transforma dados brutos em decisões. Dashboards, KPIs e análises que saem do Excel e viram ação estratégica para a liderança.',
+      'Produz relatórios mensais e quinzenais para 3 marcas simultaneamente, adaptados para liderança, time interno e outros times quando necessário. SLA, sentimentação e temas recorrentes traduzidos em insights acionáveis, incluindo OnePagers para situações críticas.',
     color: 'text-indigo-600',
     bg: 'bg-indigo-50',
     border: 'hover:border-indigo-300',
     gradient: 'from-indigo-50 to-white',
-    tags: ['Dashboards', 'KPIs', 'Análise'],
+    tags: ['Relatórios', 'Sentimentação', 'KPIs'],
   },
   {
     icon: Brain,
     title: 'Inteligência Artificial',
     subtitle: 'Escala operações com inteligência',
     description:
-      'Usa IA para multiplicar capacidade — não substituir qualidade. Agentes, automações e prompts que preservam o tom da marca enquanto ganham escala.',
+      'Usa IA para multiplicar capacidade — não substituir qualidade. Agentes e prompts de IA generativa que preservam o tom da marca enquanto ganham escala.',
     color: 'text-purple-600',
     bg: 'bg-purple-50',
     border: 'hover:border-purple-300',
     gradient: 'from-purple-50 to-white',
-    tags: ['Agentes de IA', 'Automação', 'Prompts'],
+    tags: ['Agentes de IA', 'IA Generativa', 'Prompts'],
   },
 ]
 
@@ -63,7 +63,7 @@ export default function Differentials() {
             A combinação que <span className="text-violet-700">poucos têm</span>
           </h2>
           <p className="mt-4 text-base text-zinc-500 leading-relaxed">
-            Não apenas cria conteúdo — mede impacto, interpreta resultados e usa IA para otimizar estratégias continuamente.
+            Gerencia comunidades com propósito, transforma dados em narrativas estratégicas e usa IA para escalar sem perder o tom humano de cada marca.
           </p>
         </motion.div>
 

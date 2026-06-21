@@ -42,6 +42,19 @@
       background: #5b21b6;
       padding: 28px 32px 24px;
       color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 3px solid rgba(255,255,255,0.5);
+      flex-shrink: 0;
     }
 
     .header h1 {
@@ -63,8 +76,8 @@
 
     /* ── SIDEBAR ── */
     .sidebar {
-      background: #1e1b4b;
-      color: #e0e7ff;
+      background: #f5f3ff;
+      color: #1a1a2e;
       padding: 24px 22px;
     }
 
@@ -75,16 +88,16 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #a5b4fc;
+      color: #5b21b6;
       margin-bottom: 10px;
       padding-bottom: 5px;
-      border-bottom: 1px solid #312e81;
+      border-bottom: 1px solid #ddd6fe;
     }
 
     .sidebar p, .sidebar li {
       font-size: 11.5px;
       line-height: 1.6;
-      color: #c7d2fe;
+      color: #374151;
     }
 
     .contact-item {
@@ -99,16 +112,16 @@
       height: 16px;
       flex-shrink: 0;
       margin-top: 1px;
-      color: #a5b4fc;
+      color: #5b21b6;
     }
 
-    .contact-item a { color: #c7d2fe; text-decoration: none; }
-    .contact-item a:hover { color: #fff; }
+    .contact-item a { color: #4b5563; text-decoration: none; }
+    .contact-item a:hover { color: #5b21b6; }
 
     .skill-tag {
       display: inline-block;
-      background: #312e81;
-      color: #c7d2fe;
+      background: #ede9fe;
+      color: #5b21b6;
       font-size: 10px;
       font-weight: 500;
       padding: 3px 8px;
@@ -125,20 +138,20 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #a5b4fc;
+      color: #5b21b6;
     }
 
     .degree-item .degree-title {
       font-size: 11.5px;
       font-weight: 600;
-      color: #e0e7ff;
+      color: #111827;
       margin-top: 1px;
       line-height: 1.3;
     }
 
     .degree-item .degree-inst {
       font-size: 10.5px;
-      color: #a5b4fc;
+      color: #6b7280;
       margin-top: 1px;
     }
 
@@ -297,8 +310,11 @@
 
     <!-- HEADER -->
     <header class="header">
-      <h1>Júlia Dias de<br>Albuquerque</h1>
-      <p class="subtitle">Customer Analyst Jr · Comunicação &amp; Mídias Sociais · Inteligência Artificial</p>
+      <img src="foto-julia.jpg" alt="Júlia Dias de Albuquerque" class="header-photo" />
+      <div>
+        <h1>Júlia Dias de Albuquerque</h1>
+        <p class="subtitle">Comunicação · Dados · Inteligência Artificial</p>
+      </div>
     </header>
 
     <!-- SIDEBAR -->
@@ -311,16 +327,12 @@
           <span contenteditable="true" spellcheck="false" title="Clique para editar o endereço">[Endereço]</span>
         </div>
         <div class="contact-item">
-          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.14 2.18 2 2 0 012.12 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.46-.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-          <span contenteditable="true" spellcheck="false" title="Clique para editar o telefone">(11) [TELEFONE]</span>
-        </div>
-        <div class="contact-item">
           <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <a href="mailto:juliadiasdealbuquerque@gmail.com">juliadiasdealbuquerque@gmail.com</a>
         </div>
         <div class="contact-item">
           <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          <a href="https://linkedin.com/in/juliadiasdealbuquerque">/in/juliadiasdealbuquerque</a>
+          <a href="https://www.linkedin.com/in/júliadiasdealbuquerque">/in/júliadiasdealbuquerque</a>
         </div>
       </section>
 
@@ -329,12 +341,12 @@
         <div class="degree-item">
           <div class="degree-type">Pós-Graduação · MBA</div>
           <div class="degree-title">Marketing e Branding</div>
-          <div class="degree-inst">Descomplica Faculdade Digital · 2025</div>
+          <div class="degree-inst">Descomplica Faculdade Digital · Nov 2025</div>
         </div>
         <div class="degree-item">
           <div class="degree-type">Tecnólogo</div>
           <div class="degree-title">Marketing</div>
-          <div class="degree-inst">Descomplica Faculdade Digital · 2024</div>
+          <div class="degree-inst">Descomplica Faculdade Digital · Dez 2023</div>
         </div>
         <div class="degree-item">
           <div class="degree-type">Ensino Médio</div>
@@ -345,45 +357,61 @@
       <section>
         <h2>Hard Skills</h2>
         <span class="skill-tag">Excel</span>
-        <span class="skill-tag">Análise de Dados</span>
+        <span class="skill-tag">Google Sheets</span>
+        <span class="skill-tag">Google Apresentações</span>
         <span class="skill-tag">Dashboards</span>
         <span class="skill-tag">KPIs / SLA</span>
-        <span class="skill-tag">Engenharia de Prompt</span>
-        <span class="skill-tag">Claude / GPTs</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">GPTs</span>
+        <span class="skill-tag">Claude</span>
+        <span class="skill-tag">Gemini</span>
         <span class="skill-tag">Agentes de IA</span>
-        <span class="skill-tag">Marketing Digital</span>
-        <span class="skill-tag">SEO</span>
         <span class="skill-tag">Redes Sociais</span>
+        <span class="skill-tag">Gestão de Comunidade</span>
+        <span class="skill-tag">Social Listening</span>
+        <span class="skill-tag">Monitoramento de Mídias</span>
+        <span class="skill-tag">Stilingue</span>
+        <span class="skill-tag">Blip</span>
+        <span class="skill-tag">Notion</span>
         <span class="skill-tag">Inside Sales</span>
         <span class="skill-tag">Atendimento Omnicanal</span>
         <span class="skill-tag">Lean Seis Sigma (White Belt)</span>
+        <span class="skill-tag">PDCA</span>
+        <span class="skill-tag">Análise de Dados</span>
+        <span class="skill-tag">Melhoria de Processos</span>
       </section>
 
       <section>
         <h2>Cursos Complementares</h2>
-        <p style="font-size:11px;line-height:1.8;color:#a5b4fc;">
-          Engenharia de Prompt · 2024<br>
-          IA Aplicada ao Marketing · 2024<br>
-          Lean Seis Sigma — White Belt · 2022<br>
-          SEO Intermediário · 2022<br>
-          Planejamento Harvard · 2022<br>
-          Rapport e Influência · 2022<br>
-          Escrita Assertiva · 2022<br>
-          Argumentação Persuasiva · 2022<br>
-          Customer Experience · 2021<br>
-          Marketing Digital · 2021
+        <p style="font-size:11px;line-height:1.8;color:#374151;">
+          Formação de Social Media · O Novo Mercado · Em andamento<br>
+          Criação de Agentes de IA · O Novo Mercado · 2026<br>
+          Técnicas de Comunicação Interpessoal · LinkedIn Learning · 2022<br>
+          Lean Seis Sigma — White Belt · Grupo Voitto · 2022<br>
+          SEO Intermediário: estratégias para campanhas · Escola Conquer · 2022<br>
+          Planejamento para negociação com o modelo de Harvard · Escola Conquer · 2022<br>
+          Técnicas de Rapport para negociação e influência · Escola Conquer · 2022<br>
+          Escrita Assertiva · Escola Conquer · 2022<br>
+          Argumentação Persuasiva · Escola Conquer · 2022<br>
+          Certificação em Liderança, Capacidade de Aprender e Resiliência · PUCRS · 2021<br>
+          Marketing Digital em Redes Sociais e E-Commerce · Senac São Paulo · 2021<br>
+          Customer Experience (CX) · Escola Conquer · 2021
         </p>
       </section>
 
       <section>
         <h2>Idiomas</h2>
-        <p style="font-size:11.5px;color:#c7d2fe;font-weight:600;">Inglês</p>
-        <p style="font-size:10.5px;color:#a5b4fc;margin-top:2px;">Intermediário</p>
+        <p style="font-size:11.5px;color:#111827;font-weight:600;">Português</p>
+        <p style="font-size:10.5px;color:#6b7280;margin-top:2px;margin-bottom:8px;">Nativo</p>
+        <p style="font-size:11.5px;color:#111827;font-weight:600;">Inglês</p>
+        <p style="font-size:10.5px;color:#6b7280;margin-top:2px;margin-bottom:8px;">Intermediário</p>
+        <p style="font-size:11.5px;color:#111827;font-weight:600;">Espanhol</p>
+        <p style="font-size:10.5px;color:#6b7280;margin-top:2px;">Básico</p>
       </section>
 
       <section>
         <h2>PCD</h2>
-        <p style="font-size:11px;color:#a5b4fc;">CID G80.1 — Deficiência Física</p>
+        <p style="font-size:11px;color:#374151;">CID G80.1 — Deficiência Física</p>
       </section>
 
     </aside>
@@ -394,13 +422,12 @@
       <section>
         <h2>Perfil Profissional</h2>
         <p class="profile-text">
-          Profissional com experiência em <strong>Customer Experience</strong>, Comunicação Digital e Análise de Dados.
-          Atualmente na <strong>Gringo · Corpay</strong>, atuo na gestão de mídias sociais das marcas Gringo e Zapay,
-          análise de indicadores de atendimento, construção de apresentações executivas para liderança e
-          desenvolvimento de projetos de IA aplicados à operação.
-          Combino visão estratégica de CX com capacidade analítica e domínio de ferramentas de inteligência artificial —
-          uma trilha que vai do dado bruto à narrativa de impacto.
-          Pós-graduada (MBA) em Marketing e Branding, com sólida base em marketing digital, SEO e automações com IA.
+          Minha trajetória começa no atendimento ao cliente e chega à construção de agentes de IA para redes sociais.
+          No <strong>Gringo</strong>, gerencio a comunidade de 3 marcas, produzo relatórios e análises de dados
+          para liderança e time interno, e desenvolvo <strong>4 agentes de IA</strong> especializados
+          para escalar a operação sem perder o tom humano de cada marca.
+          Trago uma base em <strong>Customer Experience</strong> que orienta cada decisão de comunicação.
+          MBA em Marketing e Branding.
         </p>
       </section>
 
@@ -412,16 +439,16 @@
           <div class="exp-header">
             <div>
               <div class="exp-title">Customer Analyst Jr — Mídias Sociais</div>
-              <div class="exp-company">Gringo · Corpay</div>
+              <div class="exp-company">Gringo <span style="font-size:10px;font-weight:400;color:#6b7280;font-style:italic;">· adquirido pela Sem Parar · Corpay em 2025</span></div>
             </div>
             <div class="exp-period">Out 2023 – Atualmente</div>
           </div>
           <ul>
-            <li>Gestão das interações com clientes nas redes sociais das marcas <strong>Gringo</strong> e <strong>Zapay</strong> (comentários, DMs e canais digitais), garantindo comunicação empática e alinhada ao tom de voz de cada marca</li>
+            <li>Gestão das interações com clientes nas redes sociais das marcas <strong>Gringo</strong>, <strong>Zapay</strong> e <strong>Olho no Carro</strong> (comentários, DMs e canais digitais), garantindo comunicação empática e alinhada ao tom de voz de cada marca</li>
             <li>Monitoramento da percepção dos usuários, sentimentação e identificação de temas recorrentes</li>
-            <li><span class="project-badge">Projeto</span>Desenvolvimento de <strong>Agente de IA</strong> para geração de sugestões de resposta alinhadas ao tom de voz das marcas Gringo e Zapay, otimizando a rotina operacional e eliminando respostas repetitivas</li>
-            <li><span class="project-badge">Projeto</span>Estruturação de <strong>dashboard de atendimento</strong> com análises quinzenais e mensais de volume de interações, SLA, sentimentação e temas recorrentes</li>
-            <li><span class="project-badge">Projeto</span>Criação de <strong>apresentações executivas</strong> para liderança com insights estratégicos e recomendações acionáveis sobre a jornada do cliente</li>
+            <li><span class="project-badge">Projeto</span>Arquitetura de <strong>4 Agentes de IA</strong> especializados por canal: redes sociais Gringo e Zapay, fóruns técnicos do Blog Gringo (com busca na Web para dúvidas sobre transferência, vistoria e documentação veicular) e comentários dos canais do YouTube Gringo e Olho no Carro — cada agente treinado com Brandbook, exemplos reais e tom de voz da respectiva marca</li>
+            <li><span class="project-badge">Projeto</span>Produção de <strong>relatórios mensais e quinzenais de mídias sociais</strong> para 3 marcas simultaneamente, adaptados para dois públicos: stakeholders de Marketing (visão estratégica com NPS, sentimentação e insights) e time interno (SLA por canal, volumes, temas recorrentes e análise de parceiras)</li>
+            <li><span class="project-badge">Projeto</span>Estruturação do <strong>framework de resposta e gestão de comunidade</strong> para 3 marcas — definindo critérios de triagem, SLA diferenciado por canal, tom de voz adaptado ao contexto e protocolo de escalada para situações sensíveis</li>
             <li>Atuação em parceria com áreas internas para melhoria contínua de processos e resolução de demandas</li>
           </ul>
         </div>
@@ -430,7 +457,7 @@
         <div class="exp-item">
           <div class="exp-header">
             <div>
-              <div class="exp-title">Customer Analyst Jr — CX & Produto</div>
+              <div class="exp-title">Customer Analyst Jr</div>
               <div class="exp-company">Gringo</div>
             </div>
             <div class="exp-period">Mar 2023 – Out 2023</div>
@@ -454,10 +481,9 @@
             <div class="exp-period">Jul 2021 – Mar 2023</div>
           </div>
           <ul>
-            <li>Prospecção ativa via ligação e <strong>inside sales</strong>, com foco em conversão e satisfação do cliente</li>
-            <li>Treinamento e integração de novos colaboradores no dia a dia da operação</li>
-            <li>Atendimento humanizado com cumprimento consistente de metas comerciais</li>
+            <li>Atendimento humanizado via <strong>inside sales</strong> (inbound), com foco na satisfação e cumprimento consistente de metas</li>
             <li>Auxílio consultivo aos consumidores na escolha de produtos adequados às suas necessidades</li>
+            <li>Treinamento e integração de novos colaboradores no dia a dia da operação</li>
           </ul>
         </div>
       </section>

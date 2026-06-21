@@ -8,38 +8,41 @@ const degrees = [
   {
     title: 'MBA em Marketing e Branding',
     institution: 'Descomplica Faculdade Digital',
-    year: '2025',
+    year: 'Nov 2025',
     type: 'Pós-Graduação',
   },
   {
     title: 'Tecnólogo em Marketing',
     institution: 'Descomplica Faculdade Digital',
-    year: '2024',
+    year: 'Dez 2023',
     type: 'Graduação',
   },
 ]
 
 const courses = [
-  { title: 'Engenharia de Prompt', area: 'Inteligência Artificial', year: '2024' },
-  { title: 'IA Aplicada ao Marketing', area: 'Inteligência Artificial', year: '2024' },
-  { title: 'Lean Seis Sigma — White Belt', area: 'Melhoria Contínua', year: '2022' },
-  { title: 'SEO Intermediário', area: 'Marketing', year: '2022' },
-  { title: 'Planejamento Harvard', area: 'Estratégia', year: '2022' },
-  { title: 'Rapport e Influência', area: 'Relacionamento', year: '2022' },
-  { title: 'Escrita Assertiva', area: 'Comunicação', year: '2022' },
-  { title: 'Argumentação Persuasiva', area: 'Comunicação', year: '2022' },
-  { title: 'Customer Experience', area: 'CX & Atendimento', year: '2021' },
-  { title: 'Marketing Digital', area: 'Marketing', year: '2021' },
+  { title: 'Formação de Social Media',                                         institution: 'O Novo Mercado',    area: 'Marketing',               year: 'Em andamento' },
+  { title: 'Criação de Agentes de IA',                                        institution: 'O Novo Mercado',    area: 'Inteligência Artificial', year: '2026' },
+  { title: 'Técnicas de Comunicação Interpessoal',                            institution: 'LinkedIn Learning', area: 'Comunicação',             year: '2022' },
+  { title: 'Lean Seis Sigma — White Belt',                                    institution: 'Grupo Voitto',      area: 'Melhoria Contínua',       year: '2022' },
+  { title: 'SEO Intermediário: estratégias para campanhas',                   institution: 'Escola Conquer',    area: 'Marketing',               year: '2022' },
+  { title: 'Planejamento para negociação com o modelo de Harvard',            institution: 'Escola Conquer',    area: 'Estratégia',              year: '2022' },
+  { title: 'Técnicas de Rapport para negociação e influência',                institution: 'Escola Conquer',    area: 'Relacionamento',          year: '2022' },
+  { title: 'Escrita Assertiva',                                               institution: 'Escola Conquer',    area: 'Comunicação',             year: '2022' },
+  { title: 'Argumentação Persuasiva',                                         institution: 'Escola Conquer',    area: 'Comunicação',             year: '2022' },
+  { title: 'Certificação em Liderança, Capacidade de Aprender e Resiliência', institution: 'PUCRS',             area: 'Liderança',               year: '2021' },
+  { title: 'Marketing Digital em Redes Sociais e E-Commerce',                 institution: 'Senac São Paulo',   area: 'Marketing',               year: '2021' },
+  { title: 'Customer Experience (CX)',                                         institution: 'Escola Conquer',    area: 'CX & Atendimento',        year: '2021' },
 ]
 
 const areaColors: Record<string, string> = {
-  'Marketing': 'bg-pink-50 text-pink-700 border-pink-200',
-  'CX & Atendimento': 'bg-sky-50 text-sky-700 border-sky-200',
-  'Comunicação': 'bg-violet-50 text-violet-700 border-violet-200',
-  'Estratégia': 'bg-amber-50 text-amber-700 border-amber-200',
-  'Relacionamento': 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  'Inteligência Artificial': 'bg-indigo-50 text-indigo-700 border-indigo-200',
-  'Melhoria Contínua': 'bg-teal-50 text-teal-700 border-teal-200',
+  'Marketing':             'bg-pink-50 text-pink-700 border-pink-200',
+  'CX & Atendimento':     'bg-sky-50 text-sky-700 border-sky-200',
+  'Comunicação':           'bg-violet-50 text-violet-700 border-violet-200',
+  'Estratégia':            'bg-amber-50 text-amber-700 border-amber-200',
+  'Relacionamento':        'bg-emerald-50 text-emerald-700 border-emerald-200',
+  'Inteligência Artificial':'bg-indigo-50 text-indigo-700 border-indigo-200',
+  'Melhoria Contínua':    'bg-teal-50 text-teal-700 border-teal-200',
+  'Liderança':             'bg-rose-50 text-rose-700 border-rose-200',
 }
 
 const degreeTypeColors: Record<string, string> = {
@@ -124,10 +127,15 @@ export default function Courses() {
                     </div>
                     <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3.5 rounded-xl bg-zinc-50 border border-zinc-200/80 hover:border-violet-200 hover:bg-violet-50/30 transition-all duration-200 group">
                       <div className="flex items-center gap-3">
-                        <div className="p-1.5 rounded-lg bg-white border border-zinc-200 group-hover:border-violet-200 transition-colors">
+                        <div className="p-1.5 rounded-lg bg-white border border-zinc-200 group-hover:border-violet-200 transition-colors flex-shrink-0">
                           <GraduationCap size={13} className="text-violet-600" />
                         </div>
-                        <span className="text-sm font-semibold text-zinc-900">{course.title}</span>
+                        <div>
+                          <span className="text-sm font-semibold text-zinc-900">{course.title}</span>
+                          {course.institution && (
+                            <p className="text-xs text-zinc-400 mt-0.5">{course.institution}</p>
+                          )}
+                        </div>
                       </div>
                       <div className="flex items-center gap-2 pl-9 sm:pl-0">
                         <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${areaColors[course.area] || 'bg-zinc-100 text-zinc-600 border-zinc-200'}`}>

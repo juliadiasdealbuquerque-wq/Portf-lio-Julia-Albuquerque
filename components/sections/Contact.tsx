@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Linkedin, Mail, Phone, ArrowRight } from 'lucide-react'
+import { Linkedin, Mail, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const contactLinks = [
@@ -23,15 +23,6 @@ const contactLinks = [
     color: 'text-violet-600',
     bg: 'bg-violet-50',
     border: 'border-violet-100 hover:border-violet-300',
-  },
-  {
-    icon: Phone,
-    label: 'WhatsApp',
-    value: '+55 (11) 9 0000-0000',
-    href: 'https://wa.me/5511900000000',
-    color: 'text-emerald-600',
-    bg: 'bg-emerald-50',
-    border: 'border-emerald-100 hover:border-emerald-300',
   },
 ]
 

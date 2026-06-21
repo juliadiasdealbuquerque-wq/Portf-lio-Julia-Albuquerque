@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { MessageSquare, BarChart2, Brain, Megaphone } from 'lucide-react'
+import { MessageSquare, BarChart2, Brain, Megaphone, Wrench } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 
 const skillCategories = [
@@ -12,7 +12,7 @@ const skillCategories = [
     color: 'text-violet-600',
     bg: 'bg-violet-50',
     border: 'border-violet-100',
-    skills: ['Redação', 'Storytelling', 'Tom de voz', 'Branding'],
+    skills: ['Escrita para Redes Sociais', 'Storytelling', 'Tom de voz', 'Branding', 'Atendimento Omnicanal'],
     accent: 'bg-violet-600',
   },
   {
@@ -21,7 +21,7 @@ const skillCategories = [
     color: 'text-indigo-600',
     bg: 'bg-indigo-50',
     border: 'border-indigo-100',
-    skills: ['Excel', 'Análise de Dados', 'KPIs', 'Dashboards'],
+    skills: ['Excel', 'Google Sheets', 'Google Apresentações', 'KPIs', 'Dashboards'],
     accent: 'bg-indigo-600',
   },
   {
@@ -30,17 +30,26 @@ const skillCategories = [
     color: 'text-purple-600',
     bg: 'bg-purple-50',
     border: 'border-purple-100',
-    skills: ['Engenharia de Prompt', 'GPTs', 'Claude', 'Automação'],
+    skills: ['Prompt Engineering', 'GPTs', 'Claude', 'Gemini', 'Agentes de IA'],
     accent: 'bg-purple-600',
   },
   {
     icon: Megaphone,
     title: 'Marketing',
-    color: 'text-violet-600',
-    bg: 'bg-violet-50',
-    border: 'border-violet-100',
-    skills: ['Redes sociais', 'SEO', 'Performance', 'Análise de campanhas'],
-    accent: 'bg-violet-600',
+    color: 'text-rose-600',
+    bg: 'bg-rose-50',
+    border: 'border-rose-100',
+    skills: ['Redes Sociais', 'Gestão de Comunidade', 'Social Listening', 'Monitoramento de Mídias'],
+    accent: 'bg-rose-600',
+  },
+  {
+    icon: Wrench,
+    title: 'Ferramentas & Métodos',
+    color: 'text-teal-600',
+    bg: 'bg-teal-50',
+    border: 'border-teal-100',
+    skills: ['Stilingue', 'Blip', 'Notion', 'Lean Seis Sigma WB', 'PDCA'],
+    accent: 'bg-teal-600',
   },
 ]
 
@@ -67,7 +76,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
           {skillCategories.map(({ icon: Icon, title, color, bg, border, skills, accent }, i) => (
             <motion.div
               key={title}

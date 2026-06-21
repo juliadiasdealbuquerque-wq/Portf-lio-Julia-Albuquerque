@@ -4,11 +4,12 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import {
   Bot, AlertTriangle, CheckCircle2,
-  Database, TrendingUp, FileBarChart, Lightbulb, Target,
-  MessageSquare,
+  LayoutTemplate, Users, BarChart3,
+  FileText, Gauge, SmilePlus, Cloud, Share2, Sparkles,
+  MessageCircle, ThumbsUp, HelpCircle, Frown, ShieldAlert, ArrowRight,
+  Instagram, BookOpen, Youtube,
 } from 'lucide-react'
 import { Card } from '@/components/ui/card'
-import { VolumeChart, SlaChart, SentimentChart } from '@/components/charts/DashboardChart'
 
 function SectionHeader({ tag, title, description }: { tag: string; title: React.ReactNode; description: string }) {
   return (
@@ -22,10 +23,50 @@ function SectionHeader({ tag, title, description }: { tag: string; title: React.
 
 // ─── PROJECT 1: AI AGENT ────────────────────────────────────────────────────
 
+const agentsList = [
+  {
+    icon: Instagram,
+    name: 'Redes Sociais — Gringo',
+    desc: 'Posts próprios, influenciadores e seguidores',
+    color: 'bg-violet-50 border-violet-100',
+    labelColor: 'text-violet-700',
+    iconBg: 'bg-violet-100',
+    iconColor: 'text-violet-600',
+  },
+  {
+    icon: Instagram,
+    name: 'Redes Sociais — Zapay',
+    desc: 'Posts próprios, influenciadores e seguidores',
+    color: 'bg-indigo-50 border-indigo-100',
+    labelColor: 'text-indigo-700',
+    iconBg: 'bg-indigo-100',
+    iconColor: 'text-indigo-600',
+  },
+  {
+    icon: BookOpen,
+    name: 'Blog Gringo — Fóruns',
+    desc: 'Responde dúvidas sobre transferência, vistoria e documentação veicular com busca na Web em tempo real',
+    color: 'bg-blue-50 border-blue-100',
+    labelColor: 'text-blue-700',
+    iconBg: 'bg-blue-100',
+    iconColor: 'text-blue-600',
+  },
+  {
+    icon: Youtube,
+    name: 'YouTube — Gringo & Olho no Carro',
+    desc: 'Dois canais, dois tons: responde comentários técnicos adaptando a linguagem a cada marca',
+    color: 'bg-teal-50 border-teal-100',
+    labelColor: 'text-teal-700',
+    iconBg: 'bg-teal-100',
+    iconColor: 'text-teal-600',
+  },
+]
+
 const challenges = [
-  'Respostas engessadas e repetitivas nos comentários',
-  'Tom de voz inconsistente entre marcas e parceiros',
-  'Rotina operacional sobrecarregada sem escala',
+  'Respostas engessadas e repetitivas nos comentários e fóruns',
+  'Tom de voz inconsistente entre marcas e canais distintos',
+  'Dúvidas técnicas sobre veículos exigindo informações atualizadas',
+  'Rotina sobrecarregada sem escala para cobrir redes sociais, blog e YouTube',
 ]
 
 const results = [
@@ -38,13 +79,13 @@ const results = [
 ]
 
 const buildSteps = [
-  { n: '01', label: 'Definição do Objetivo', desc: 'Escopo, papel do agente e o que a IA deve e não deve fazer' },
-  { n: '02', label: 'Definição da Persona', desc: 'Voz em 1ª pessoa, personalidade baseada no Brand Book da marca' },
-  { n: '03', label: 'Criação das Regras', desc: 'Tom, linguagem, emojis obrigatórios e temas sensíveis' },
-  { n: '04', label: 'Construção dos Cenários', desc: 'Anfitrião (Gringo), Convidado (influenciador), Intermediário (parceiro)' },
-  { n: '05', label: 'Uso de Exemplos Reais', desc: 'Referências de tom, tamanho e criatividade como treino comportamental' },
-  { n: '06', label: 'Configuração de Segurança', desc: 'Bloqueio de termos proibidos e proteção de dados internos' },
-  { n: '07', label: 'Testes e Refinos', desc: 'Ajustes contínuos de tom, emoji e naturalidade com casos reais' },
+  { n: '01', label: 'Definição do Objetivo',   desc: 'Escopo, papel do agente e o que a IA deve e não deve fazer' },
+  { n: '02', label: 'Definição da Persona',     desc: 'Voz em 1ª pessoa, personalidade baseada no Brand Book da marca' },
+  { n: '03', label: 'Criação das Regras',       desc: 'Tom, linguagem, emojis obrigatórios e temas sensíveis' },
+  { n: '04', label: 'Construção dos Cenários',  desc: 'Anfitrião (Gringo), Convidado (influenciador), Intermediário (parceiro)' },
+  { n: '05', label: 'Uso de Exemplos Reais',    desc: 'Referências de tom, tamanho e criatividade como treino comportamental' },
+  { n: '06', label: 'Configuração de Segurança',desc: 'Bloqueio de termos proibidos e proteção de dados internos' },
+  { n: '07', label: 'Testes e Refinos',         desc: 'Ajustes contínuos de tom, emoji e naturalidade com casos reais' },
 ]
 
 function AIAgentProject() {
@@ -53,7 +94,6 @@ function AIAgentProject() {
 
   return (
     <div ref={ref} className="grid lg:grid-cols-2 gap-10 items-start">
-      {/* Left — Info */}
       <motion.div
         initial={{ opacity: 0, x: -24 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -64,16 +104,31 @@ function AIAgentProject() {
           <div className="p-2.5 rounded-xl bg-violet-100">
             <Bot size={22} className="text-violet-600" />
           </div>
-          <div>
-            <h3 className="text-xl font-bold text-zinc-900">Agente GPT para Redes Sociais</h3>
-          </div>
+          <h3 className="text-xl font-bold text-zinc-900">Agente de IA para Redes Sociais</h3>
         </div>
 
         <p className="text-zinc-600 leading-relaxed text-sm">
-          Desenvolvimento de um agente de IA para gerar respostas <strong className="text-zinc-800">criativas, humanizadas e alinhadas ao tom de voz</strong> das marcas Gringo e Zapay — em posts próprios, de influenciadores parceiros e de seguidores. O agente foi arquitetado do zero com metodologia estruturada de 7 etapas.
+          Arquitetura e configuração de <strong className="text-zinc-800">4 agentes de IA especializados</strong>{' '}
+          para cobrir os principais canais de comunicação das marcas Gringo e Zapay — redes sociais,
+          fóruns do blog e YouTube. Cada agente foi treinado com Brandbook, exemplos reais de interações
+          e, quando necessário, busca na Web ativada para dúvidas técnicas sobre veículos.
         </p>
 
-        {/* Challenges */}
+        <div className="space-y-2">
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide">Agentes criados</p>
+          {agentsList.map(({ icon: Icon, name, desc, color, labelColor, iconBg, iconColor }) => (
+            <div key={name} className={`flex items-start gap-2.5 p-3 rounded-xl border ${color}`}>
+              <div className={`p-1.5 rounded-lg ${iconBg} flex-shrink-0 mt-0.5`}>
+                <Icon size={12} className={iconColor} />
+              </div>
+              <div>
+                <p className={`text-xs font-bold ${labelColor}`}>{name}</p>
+                <p className={`text-[11px] ${labelColor} opacity-70 mt-0.5 leading-relaxed`}>{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="p-4 rounded-xl bg-red-50/60 border border-red-100">
           <p className="text-xs font-semibold text-red-700 mb-2 flex items-center gap-1.5">
             <AlertTriangle size={12} /> Problema
@@ -88,7 +143,6 @@ function AIAgentProject() {
           </ul>
         </div>
 
-        {/* Results — 2 colunas */}
         <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100">
           <p className="text-xs font-semibold text-emerald-700 mb-3 flex items-center gap-1.5">
             <CheckCircle2 size={12} /> Impactos e ganhos
@@ -104,7 +158,6 @@ function AIAgentProject() {
         </div>
       </motion.div>
 
-      {/* Right — 7-step methodology */}
       <motion.div
         initial={{ opacity: 0, x: 24 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -143,156 +196,300 @@ function AIAgentProject() {
   )
 }
 
-// ─── PROJECT 2: DASHBOARD ───────────────────────────────────────────────────
+// ─── PROJECT 2: RELATÓRIOS E APRESENTAÇÕES ──────────────────────────────────
 
-const indicators = [
-  { label: 'Volume de interações', icon: TrendingUp },
-  { label: 'SLA (cumprimento)', icon: Target },
-  { label: 'Sentimentação', icon: MessageSquare },
-  { label: 'Temas recorrentes', icon: FileBarChart },
+const reportSections = [
+  { icon: Gauge,     label: 'SLA por Canal',        desc: 'Tempo médio de resposta por plataforma vs. meta' },
+  { icon: BarChart3, label: 'Volume de Interações', desc: 'Total e evolução mensal por tipo e canal' },
+  { icon: SmilePlus, label: 'Sentimentação',        desc: 'Classificação positivo / neutro / negativo com NPS' },
+  { icon: FileText,  label: 'Principais Assuntos',  desc: 'Temas recorrentes e variações em relação ao mês anterior' },
+  { icon: Share2,    label: 'Análise de Parceiras', desc: 'Engajamento, sentimento e comentários em posts de co-marketing' },
+  { icon: Cloud,     label: 'Nuvem de Palavras',    desc: 'Termos mais frequentes e destaque de padrão do mês' },
 ]
 
-function DashboardProject() {
+const audiences = [
+  {
+    label: 'Stakeholders de Marketing',
+    focus: 'Foco estratégico',
+    color: 'bg-violet-50 border-violet-100',
+    labelColor: 'text-violet-700',
+    dotColor: 'bg-violet-400',
+    items: ['NPS e sentimentação consolidada', 'Tendências e variações vs. período anterior', 'Posts de parceiras com análise de sentimento', 'Insight principal do mês'],
+  },
+  {
+    label: 'Time Interno',
+    focus: 'Múltiplas frentes',
+    color: 'bg-indigo-50 border-indigo-100',
+    labelColor: 'text-indigo-700',
+    dotColor: 'bg-indigo-400',
+    items: ['SLA e volumes detalhados por canal', 'Palavras e temas recorrentes por categoria', 'Breakdown quinzenal e mensal', 'Leitura unificada para todas as frentes de atendimento'],
+  },
+]
+
+function PresentationsProject() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <div ref={ref} className="space-y-8">
+    <div ref={ref} className="grid lg:grid-cols-2 gap-10 items-start">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="grid lg:grid-cols-3 gap-6 items-start"
+        initial={{ opacity: 0, x: -24 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-5"
       >
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-indigo-100">
-              <FileBarChart size={22} className="text-indigo-600" />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-zinc-900">Dashboard de Atendimento e Mídias</h3>
-            </div>
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-rose-100">
+            <LayoutTemplate size={22} className="text-rose-600" />
           </div>
-          <p className="text-zinc-600 leading-relaxed text-sm">
-            Estruturação de análises quinzenais e mensais para acompanhamento de indicadores estratégicos de atendimento.
-          </p>
-          <div className="space-y-2">
-            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide">Indicadores monitorados</p>
-            {indicators.map(({ label, icon: Icon }) => (
-              <div key={label} className="flex items-center gap-2 text-sm text-zinc-700">
-                <Icon size={13} className="text-violet-500 flex-shrink-0" />
-                {label}
-              </div>
-            ))}
-          </div>
+          <h3 className="text-xl font-bold text-zinc-900">Relatórios e Apresentações de Mídias</h3>
         </div>
 
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Card className="p-4">
-            <p className="text-xs font-semibold text-zinc-600 mb-3">Volume de interações</p>
-            <VolumeChart />
-          </Card>
-          <Card className="p-4">
-            <p className="text-xs font-semibold text-zinc-600 mb-3">SLA trimestral vs meta</p>
-            <SlaChart />
-          </Card>
-          <Card className="p-4 sm:col-span-1">
-            <p className="text-xs font-semibold text-zinc-600 mb-3">Sentimentação de interações</p>
-            <SentimentChart />
-          </Card>
-          <Card className="p-4 flex flex-col justify-between">
-            <p className="text-xs font-semibold text-zinc-600 mb-3">Tendências do período</p>
-            <div className="space-y-2.5 flex-1">
-              {['Dúvidas sobre documentação', 'Atualização de cadastro', 'Suporte técnico', 'Cancelamentos'].map((tema, i) => (
-                <div key={tema} className="flex items-center gap-2">
-                  <div className="text-xs text-zinc-400 w-4 font-medium">{i + 1}</div>
-                  <div className="flex-1 h-1.5 bg-zinc-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-violet-500 rounded-full"
-                      style={{ width: `${80 - i * 15}%` }}
-                    />
-                  </div>
-                  <span className="text-xs text-zinc-600 flex-1">{tema}</span>
-                </div>
-              ))}
+        <p className="text-zinc-600 leading-relaxed text-sm">
+          Produção de relatórios mensais e quinzenais de mídias sociais para{' '}
+          <strong className="text-zinc-800">3 marcas simultaneamente</strong>, adaptados para dois
+          públicos distintos: stakeholders de Marketing e o time interno completo — que reúne
+          múltiplas frentes de atendimento. Cada relatório transforma dados operacionais em
+          narrativas visuais claras e acionáveis.
+        </p>
+
+        <div className="space-y-3">
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide flex items-center gap-1.5">
+            <Users size={12} /> Públicos atendidos
+          </p>
+          {audiences.map(({ label, focus, color, labelColor, dotColor, items }) => (
+            <div key={label} className={`p-4 rounded-xl border ${color}`}>
+              <div className="flex items-center gap-2 mb-2">
+                <p className={`text-xs font-bold ${labelColor}`}>{label}</p>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${labelColor} bg-white/70 font-medium`}>{focus}</span>
+              </div>
+              <ul className="space-y-1">
+                {items.map((item) => (
+                  <li key={item} className={`text-xs ${labelColor} opacity-80 flex items-start gap-1.5`}>
+                    <span className={`w-1 h-1 rounded-full mt-1.5 flex-shrink-0 ${dotColor}`} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </Card>
+          ))}
         </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 24 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Card className="p-5 bg-gradient-to-br from-zinc-50 to-white">
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide mb-4 text-center">
+            Anatomia do relatório mensal
+          </p>
+          <div className="grid grid-cols-2 gap-2.5">
+            {reportSections.map(({ icon: Icon, label, desc }, i) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.35, delay: 0.2 + i * 0.07 }}
+                className="p-3 rounded-xl border border-zinc-100 bg-white hover:border-rose-200 hover:bg-rose-50/30 transition-colors group"
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="p-1 rounded-md bg-rose-50 group-hover:bg-rose-100 transition-colors">
+                    <Icon size={12} className="text-rose-500" />
+                  </div>
+                  <p className="text-xs font-bold text-zinc-800 leading-tight">{label}</p>
+                </div>
+                <p className="text-[11px] text-zinc-500 leading-relaxed">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-4 p-3 rounded-lg bg-gradient-to-r from-rose-500 to-rose-600 flex items-start gap-2.5">
+            <Sparkles size={14} className="text-white/90 flex-shrink-0 mt-0.5" />
+            <p className="text-[11px] text-white/90 leading-relaxed">
+              Cada seção inclui um <strong className="text-white">Insight Principal</strong> — uma conclusão estratégica derivada dos dados, não apenas a reprodução dos números.
+            </p>
+          </div>
+        </Card>
       </motion.div>
     </div>
   )
 }
 
-// ─── PROJECT 3: DATA → INSIGHTS ─────────────────────────────────────────────
+// ─── PROJECT 3: ESTRATÉGIA DE RESPOSTA ──────────────────────────────────────
 
-const processSteps = [
-  { icon: Database, label: 'Dados', desc: 'Coleta e estruturação de dados brutos de atendimento e canais', color: 'bg-zinc-50 border-zinc-200 text-zinc-700' },
-  { icon: TrendingUp, label: 'Análise', desc: 'Identificação de padrões, variações e correlações temporais', color: 'bg-violet-50 border-violet-200 text-violet-700' },
-  { icon: Lightbulb, label: 'Hipóteses', desc: 'Formulação de hipóteses sobre causas e oportunidades', color: 'bg-indigo-50 border-indigo-200 text-indigo-700' },
-  { icon: Target, label: 'Insights', desc: 'Extração de conclusões acionáveis e priorizadas', color: 'bg-purple-50 border-purple-200 text-purple-700' },
-  { icon: CheckCircle2, label: 'Recomendações', desc: 'Apresentação à liderança com plano de ação claro', color: 'bg-violet-600 border-violet-700 text-white' },
+const responseFramework = [
+  {
+    icon: ThumbsUp,
+    type: 'Positiva',
+    typeColor: 'text-emerald-700',
+    typeBg: 'bg-emerald-50 border-emerald-200',
+    iconColor: 'text-emerald-500',
+    iconBg: 'bg-emerald-100',
+    action: 'Engajamento criativo alinhado ao tom da marca',
+    actionColor: 'bg-emerald-50 text-emerald-700',
+  },
+  {
+    icon: HelpCircle,
+    type: 'Dúvida',
+    typeColor: 'text-blue-700',
+    typeBg: 'bg-blue-50 border-blue-200',
+    iconColor: 'text-blue-500',
+    iconBg: 'bg-blue-100',
+    action: 'Informação clara + direcionamento para o canal certo',
+    actionColor: 'bg-blue-50 text-blue-700',
+  },
+  {
+    icon: Frown,
+    type: 'Reclamação',
+    typeColor: 'text-amber-700',
+    typeBg: 'bg-amber-50 border-amber-200',
+    iconColor: 'text-amber-500',
+    iconBg: 'bg-amber-100',
+    action: 'Empatia + resolução ou escalada interna',
+    actionColor: 'bg-amber-50 text-amber-700',
+  },
+  {
+    icon: ShieldAlert,
+    type: 'Sensível / Crise',
+    typeColor: 'text-red-700',
+    typeBg: 'bg-red-50 border-red-200',
+    iconColor: 'text-red-500',
+    iconBg: 'bg-red-100',
+    action: 'Protocolo específico + acionamento imediato',
+    actionColor: 'bg-red-50 text-red-700',
+  },
 ]
 
-function InsightsProject() {
+const responseStructured = [
+  'Critérios de triagem para cada tipo de interação',
+  'SLA diferenciado por canal e urgência',
+  'Tom de voz adaptado ao contexto — sem perder a identidade da marca',
+  'Regras de escalada para situações sensíveis',
+  'Padronização replicável nas 3 marcas',
+]
+
+function ResponseStrategyProject() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className="grid lg:grid-cols-2 gap-10 items-start">
+      {/* Left — Info */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="grid lg:grid-cols-2 gap-10 items-center"
+        initial={{ opacity: 0, x: -24 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-5"
       >
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-purple-100">
-              <Lightbulb size={22} className="text-purple-600" />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-zinc-900">Transformação de Dados em Insights</h3>
-            </div>
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-teal-100">
+            <MessageCircle size={22} className="text-teal-600" />
           </div>
-          <p className="text-zinc-600 leading-relaxed">
-            Criação de apresentações executivas para liderança, transformando dados brutos
-            em narrativas estratégicas com recomendações concretas e acionáveis.
-          </p>
-          <div className="p-4 rounded-xl bg-violet-50 border border-violet-100">
-            <p className="text-sm font-semibold text-violet-800 mb-1">Impacto gerado</p>
-            <p className="text-sm text-violet-700/80">
-              Relatórios que suportaram decisões estratégicas da liderança, com redução
-              do tempo de análise e aumento da clareza nas tomadas de decisão.
-            </p>
-          </div>
+          <h3 className="text-xl font-bold text-zinc-900">Estratégia de Resposta e Gestão de Comunidade</h3>
         </div>
 
-        {/* Process flow — vertical */}
-        <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-zinc-200 via-violet-300 to-violet-600" />
-          <div className="space-y-3">
-            {processSteps.map(({ icon: Icon, label, desc, color }, i) => (
+        <p className="text-zinc-600 leading-relaxed text-sm">
+          Estruturação do framework de como responder em diferentes situações nas{' '}
+          <strong className="text-zinc-800">3 marcas</strong> — definindo não só o que responder,
+          mas quando, como e quem acionar. O objetivo foi garantir consistência e agilidade
+          sem abrir mão do tom humano de cada marca.
+        </p>
+
+        <div className="p-4 rounded-xl bg-red-50/60 border border-red-100">
+          <p className="text-xs font-semibold text-red-700 mb-2 flex items-center gap-1.5">
+            <AlertTriangle size={12} /> Desafio
+          </p>
+          <ul className="space-y-1.5">
+            {[
+              '3 marcas com identidades e tons distintos',
+              'Múltiplos canais com volumes e urgências diferentes',
+              'Time que precisava de critérios claros para agir com autonomia',
+            ].map((c) => (
+              <li key={c} className="text-sm text-red-700/80 flex items-start gap-2">
+                <span className="w-1 h-1 bg-red-400 rounded-full flex-shrink-0 mt-1.5" />
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="p-4 rounded-xl bg-teal-50/60 border border-teal-100">
+          <p className="text-xs font-semibold text-teal-700 mb-3">O que foi estruturado</p>
+          <ul className="space-y-1.5">
+            {responseStructured.map((item) => (
+              <li key={item} className="text-xs text-teal-700/80 flex items-start gap-1.5">
+                <CheckCircle2 size={11} className="text-teal-500 flex-shrink-0 mt-0.5" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* Right — Decision flow */}
+      <motion.div
+        initial={{ opacity: 0, x: 24 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Card className="p-5 bg-gradient-to-br from-zinc-50 to-white">
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide mb-5 text-center">
+            Framework de triagem
+          </p>
+
+          {/* Root node */}
+          <div className="flex justify-center mb-4">
+            <div className="px-4 py-2 rounded-full bg-teal-600 text-white text-xs font-bold shadow-sm shadow-teal-300 flex items-center gap-2">
+              <MessageCircle size={12} />
+              Interação recebida
+            </div>
+          </div>
+
+          {/* Connector */}
+          <div className="flex justify-center mb-1">
+            <div className="w-px h-4 bg-teal-300" />
+          </div>
+
+          {/* Branches */}
+          <div className="relative space-y-2.5">
+            <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-teal-300 to-teal-100" />
+            {responseFramework.map(({ icon: Icon, type, typeColor, typeBg, iconColor, iconBg, action, actionColor }, i) => (
               <motion.div
-                key={label}
-                initial={{ opacity: 0, x: 20 }}
+                key={type}
+                initial={{ opacity: 0, x: 16 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className={`relative flex items-start gap-4 p-4 rounded-xl border ${color} ml-3`}
+                transition={{ duration: 0.35, delay: 0.3 + i * 0.08 }}
+                className="relative flex items-center gap-2.5 pl-10"
               >
-                <div className="absolute -left-[22px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-2 border-violet-400 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-violet-500 rounded-full" />
+                {/* dot on the line */}
+                <div className="absolute left-[17px] w-2.5 h-2.5 rounded-full bg-white border-2 border-teal-400" />
+
+                {/* type badge */}
+                <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border ${typeBg} flex-shrink-0 min-w-[100px]`}>
+                  <div className={`p-0.5 rounded ${iconBg}`}>
+                    <Icon size={11} className={iconColor} />
+                  </div>
+                  <span className={`text-[11px] font-bold ${typeColor}`}>{type}</span>
                 </div>
-                <div className={`p-1.5 rounded-lg ${i === processSteps.length - 1 ? 'bg-white/20' : 'bg-white'} flex-shrink-0`}>
-                  <Icon size={14} className={i === processSteps.length - 1 ? 'text-white' : 'text-violet-600'} />
-                </div>
-                <div>
-                  <p className={`text-sm font-semibold ${i === processSteps.length - 1 ? 'text-white' : ''}`}>{label}</p>
-                  <p className={`text-xs mt-0.5 leading-relaxed ${i === processSteps.length - 1 ? 'text-white/80' : 'text-zinc-500'}`}>{desc}</p>
+
+                <ArrowRight size={12} className="text-zinc-300 flex-shrink-0" />
+
+                {/* action */}
+                <div className={`flex-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium ${actionColor} leading-tight`}>
+                  {action}
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
+
+          <div className="mt-5 p-3 rounded-lg bg-teal-600 flex items-start gap-2.5">
+            <CheckCircle2 size={14} className="text-white/90 flex-shrink-0 mt-0.5" />
+            <p className="text-[11px] text-white/90 leading-relaxed">
+              O framework foi desenhado para ser <strong className="text-white">replicável entre as 3 marcas</strong>, com adaptações de tom — mantendo o mesmo critério de decisão em qualquer canal.
+            </p>
+          </div>
+        </Card>
       </motion.div>
     </div>
   )
@@ -307,16 +504,16 @@ export default function Projects() {
         <SectionHeader
           tag="Projetos"
           title={<>Resultados que provam <span className="text-violet-700">capacidade</span></>}
-          description="Projetos reais desenvolvidos na Gringo · Corpay, combinando comunicação, dados e inteligência artificial."
+          description="Projetos reais desenvolvidos no Gringo, combinando comunicação, dados e inteligência artificial."
         />
 
         <div className="space-y-24">
           <AIAgentProject />
           <div className="border-t border-zinc-100 pt-24">
-            <DashboardProject />
+            <PresentationsProject />
           </div>
           <div className="border-t border-zinc-100 pt-24">
-            <InsightsProject />
+            <ResponseStrategyProject />
           </div>
         </div>
       </div>
