@@ -38,9 +38,9 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <span className="gradient-text">JD</span>
+          <span className="gradient-text">JA</span>
           <span className="text-zinc-400 font-light mx-1">·</span>
-          <span className="text-sm font-medium text-zinc-600">Júlia Dias</span>
+          <span className="text-sm font-medium text-zinc-600">Júlia Albuquerque</span>
         </motion.a>
 
         <nav className="hidden md:flex items-center gap-1">
